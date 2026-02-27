@@ -11,39 +11,31 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@700&amp;display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap');
         
         :root {
             --primary: #3b82f6;
         }
         
-        .tail-container {
-            font-family: 'Inter', system_ui, sans-serif;
-        }
-        
-        .heading-font {
-            font-family: 'Playfair Display', sans-serif;
-        }
-
         html {
             scroll-behavior: smooth;
         }
 
         .hero-bg {
-            background-image: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.85)), 
-                             url('https://picsum.photos/id/1074/1920/1080');
+            background-image: linear-gradient(rgba(15, 23, 42, 0.78), rgba(15, 23, 42, 0.88)), 
+                             url('tech.jpg');
             background-size: cover;
             background-position: center;
         }
 
         .nav-link {
             position: relative;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
         }
         
         .nav-link:after {
@@ -53,7 +45,7 @@
             height: 2px;
             bottom: -4px;
             left: 0;
-            background-color: #3b82f6;
+            background-color: var(--primary);
             transition: width 0.3s ease;
         }
         
@@ -63,111 +55,136 @@
         }
 
         .project-card {
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-        
-        .project-card:hover {
-            transform: translateY(-12px) scale(1.03);
-            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
-        }
+  transition: all 0.42s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: visible;
+  border-radius: 1.5rem;
+}
 
-        .skill-bar {
-            height: 6px;
-            background: linear-gradient(90deg, #3b82f6, #60a5fa);
-            border-radius: 9999px;
-            transition: width 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
+.project-card:hover {
+  transform: translateY(-12px) scale(1.028);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.45);
+}
+
+.project-card > .relative {
+  overflow: hidden;
+  border-radius: 1.5rem;
+}
 
         .glass {
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.06);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
         }
+
+        @media (max-width: 640px) {
+            h1 { font-size: 3.5rem; line-height: 1; }
+            .text-4xl { font-size: 2.25rem; }
+            .text-5xl { font-size: 2.75rem; }
+            .text-6xl { font-size: 3.5rem; }
+            .text-7xl { font-size: 4rem; }
+            .text-8xl { font-size: 4.5rem; }
+        }
     </style>
 </head>
-<body class="tail-container bg-zinc-950 text-zinc-200 overflow-x-hidden">
+<body class="bg-zinc-950 text-zinc-200 font-['Inter'] overflow-x-hidden">
+
+    <!-- Navbar -->
     <nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-white/10">
-        <div class="max-w-screen-2xl mx-auto px-8 py-5 flex items-center justify-between">
-            <a href="#home" class="flex items-center gap-3 group">
-                <img src="logo.png" alt="Logo" class="h-14 w-14 object-contain">
-                <span class="text-2xl font-semibold tracking-tighter heading-font">Hassan Ali</span>
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+            <a href="#home" class="flex items-center gap-3">
+                <img src="logo.png" alt="Logo" class="h-11 w-11 object-contain">
+                <span class="text-xl sm:text-2xl font-semibold tracking-tight heading-font">Hassan Ali</span>
             </a>
 
-            <div class="hidden md:flex items-center gap-10 text-sm font-medium">
-                <a href="#about" class="nav-link text-zinc-300 hover:text-white active">About</a>
-                <a href="#experience" class="nav-link text-zinc-300 hover:text-white">Experience</a>
-                <a href="#skills" class="nav-link text-zinc-300 hover:text-white">Skills</a>
-                <a href="#projects" class="nav-link text-zinc-300 hover:text-white">Projects</a>
-                <a href="#contact" class="nav-link text-zinc-300 hover:text-white">Contact</a>
+            <div class="hidden md:flex items-center gap-8 lg:gap-10 text-sm font-medium">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
             </div>
-            <a href="#contact" 
-               class="hidden md:flex items-center gap-2 px-6 py-3 bg-white text-zinc-900 rounded-3xl font-semibold hover:bg-blue-500 hover:text-white transition-all">
-                <i class="fa-solid fa-paper-plane"></i>
+
+            <a href="#contact" class="hidden md:flex items-center gap-2 px-5 py-2.5 bg-white text-zinc-900 rounded-full font-medium hover:bg-blue-600 hover:text-white transition-colors">
+                <i class="fa-solid fa-paper-plane text-sm"></i>
                 <span>Let's Talk</span>
             </a>
-            <button id="mobile-menu-btn"
-                    class="md:hidden w-11 h-11 flex items-center justify-center text-2xl">
+
+            <button id="mobile-menu-btn" class="md:hidden text-2xl">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
+
+        <!-- Mobile menu -->
         <div id="mobile-menu" class="hidden md:hidden glass border-t border-white/10">
-            <div class="px-8 py-8 flex flex-col gap-6 text-lg font-medium">
+            <div class="px-5 py-6 flex flex-col gap-5 text-base font-medium">
                 <a href="#about" class="nav-link-mobile">About</a>
                 <a href="#experience" class="nav-link-mobile">Experience</a>
                 <a href="#skills" class="nav-link-mobile">Skills</a>
                 <a href="#projects" class="nav-link-mobile">Projects</a>
                 <a href="#contact" class="nav-link-mobile">Contact</a>
-                <a href="#contact" class="mt-6 inline-flex justify-center items-center gap-3 py-4 bg-white text-zinc-900 rounded-3xl font-semibold">
+                <a href="#contact" class="mt-4 flex justify-center items-center gap-3 py-4 bg-white text-zinc-900 rounded-full font-semibold">
                     <i class="fa-solid fa-paper-plane"></i>
                     Let's Talk
                 </a>
             </div>
         </div>
     </nav>
-    <section id="home" class="hero-bg min-h-screen flex items-center relative">
-        <div class="max-w-screen-2xl mx-auto px-8 pt-32">
-            <div class="max-w-2xl">
-                <div class="inline-flex items-center gap-2 px-5 py-2.5 rounded-3xl border border-white/20 bg-white/10 text-sm font-medium mb-8 backdrop-blur-md">
-                    <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-                    Available for freelance &amp; opportunities
-                </div>
-                
-                <h1 class="text-7xl md:text-8xl font-bold tracking-tighter leading-none heading-font text-white">
-                    Hassan Ali
-                </h1>
-                <p class="mt-4 text-4xl md:text-5xl font-medium text-blue-300">
-                    Web Developer &amp; Educator
-                </p>
-                
-                <p class="mt-8 text-xl text-zinc-300 max-w-md">
-                    I craft beautiful, high-performance digital experiences that blend creativity with clean code.
-                </p>
-                
-                <div class="mt-12 flex flex-wrap gap-4">
-                    <a href="#projects" 
-                       onclick="document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })"
-                       class="group px-8 py-5 bg-blue-600 hover:bg-blue-700 rounded-3xl font-semibold flex items-center gap-3 transition-all text-lg">
-                        See My Work
-                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
-                    </a>
+
+    <!-- Hero -->
+    <section id="home" class="hero-bg min-h-screen flex items-center relative pt-20 md:pt-0">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 w-full">
+            <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <!-- Left - Text -->
+                <div class="text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/8 text-sm font-medium mb-6 backdrop-blur-sm">
+                        <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                        Available for freelance & opportunities
+                    </div>
                     
-                    <a href="#" 
-                       class="px-8 py-5 border-2 border-white/30 hover:border-white/70 rounded-3xl font-semibold flex items-center gap-3 transition-all text-lg">
-                        <i class="fa-solid fa-download"></i>
-                        Download CV
-                    </a>
+                    <h1 class="text-6xl sm:text-7xl lg:text-8xl font-bold tracking-tight heading-font text-white leading-tight">
+                        Hassan Ali
+                    </h1>
+                    <p class="mt-4 text-3xl sm:text-4xl lg:text-5xl font-medium text-blue-300">
+                        Web Developer & Educator
+                    </p>
+                    
+                    <p class="mt-6 text-lg sm:text-xl text-zinc-300 max-w-xl">
+                        I craft beautiful, high-performance digital experiences that blend creativity with clean, maintainable code.
+                    </p>
+                    
+                    <div class="mt-10 flex flex-wrap gap-4">
+                        <a href="#projects" class="group px-7 py-4 bg-blue-600 hover:bg-blue-700 rounded-full font-semibold flex items-center gap-3 transition-all text-base sm:text-lg">
+                            See My Work
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1.5 transition-transform"></i>
+                        </a>
+                        
+                        <a href="#" class="px-7 py-4 border-2 border-white/30 hover:border-white/70 rounded-full font-semibold flex items-center gap-3 transition-all text-base sm:text-lg">
+                            <i class="fa-solid fa-download"></i>
+                            Download CV
+                        </a>
+                    </div>
                 </div>
-                <br>
-                <br>
-                <br>
-                
+
+                <!-- Right - Image (hidden on mobile, shown on md+) -->
+                <div class="hidden md:block relative">
+                    <div class="relative w-full max-w-md mx-auto lg:mx-0">
+                        <div class="absolute -inset-4 bg-gradient-to-br from-blue-500/20 to-purple-600/20 rounded-[3rem] blur-2xl opacity-60"></div>
+                        <img 
+                            src="picture.png" 
+                            alt="Hassan Ali" 
+                            class="relative w-full rounded-3xl shadow-2xl object-cover border-8 border-zinc-900/50"
+                        >
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="hidden lg:block absolute bottom-32 right-12 bg-zinc-900/70 backdrop-blur-lg px-6 py-3 rounded-3xl border border-white/10">
+
+        <!-- Floating badge -->
+        <div class="hidden lg:block absolute bottom-10 right-10 bg-zinc-900/70 backdrop-blur-lg px-6 py-3 rounded-3xl border border-white/10 text-sm">
             <div class="flex items-center gap-4">
                 <div class="text-3xl">🚀</div>
                 <div>
-                    <div class="font-semibold text-sm">6+ Projects</div>
+                    <div class="font-semibold">6+ Projects</div>
                     <div class="text-xs text-zinc-400">Delivered in 2025</div>
                 </div>
             </div>
@@ -375,7 +392,7 @@
                     <span class="text-xs tracking-widest uppercase font-medium text-blue-400">CHAPTER 04</span>
                     <h2 class="text-5xl heading-font font-bold mt-3">Selected Works</h2>
                 </div>
-                <a href="https://github.com/hassanali" target="_blank"
+                <a href="https://github.com/mrhassan70" target="_blank"
                    class="flex items-center gap-3 group text-sm font-medium">
                     <span class="group-hover:underline">Browse all on GitHub</span>
                     <i class="fa-brands fa-github text-xl"></i>
@@ -479,12 +496,16 @@
         </div>
     </section>
 
-    <section id="contact" class="py-28 bg-zinc-900">
-        <div class="max-w-screen-2xl mx-auto px-8">
+   <section id="contact" class="py-20 md:py-28 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
             <div class="max-w-2xl mx-auto text-center">
                 <span class="text-xs tracking-widest uppercase font-medium text-blue-400">CHAPTER 05 — FINAL</span>
-                <h2 class="text-6xl heading-font font-bold mt-6">Let's create something<br>extraordinary together</h2>
-                <p class="mt-8 text-xl text-zinc-400">Open for freelance projects, collaborations, or just a friendly chat.</p>
+                <h2 class="text-4xl sm:text-5xl md:text-6xl heading-font font-bold mt-4 md:mt-6 leading-tight">
+                    Let's create something<br class="hidden sm:block"> extraordinary together
+                </h2>
+                <p class="mt-6 text-lg sm:text-xl text-zinc-400">
+                    Open for freelance projects, collaborations, or just a friendly chat.
+                </p>
             </div>
             
             <div class="mt-16 max-w-xl mx-auto">
@@ -542,20 +563,27 @@
     </footer>
 
     <script>
-        const mobileBtn = document.getElementById('mobile-menu-btn')
-        const mobileMenu = document.getElementById('mobile-menu')
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
         
-        mobileBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden')
-            const icon = mobileBtn.querySelector('i')
-            if (icon.classList.contains('fa-bars')) {
-                icon.classList.remove('fa-bars')
-                icon.classList.add('fa-xmark')
-            } else {
-                icon.classList.add('fa-bars')
-                icon.classList.remove('fa-xmark')
-            }
-        })
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                const icon = mobileBtn.querySelector('i');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-xmark');
+            });
+        }
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-link-mobile').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                const icon = mobileBtn.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-xmark');
+            });
+        });
         
         document.querySelectorAll('.nav-link-mobile').forEach(link => {
             link.addEventListener('click', () => {
