@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hassan Ali | Web Developer</title>
+    
+    <link rel="icon" href="logo.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@700&amp;display=swap');
+        
+        :root {
+            --primary: #3b82f6;
+        }
+        
+        .tail-container {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Playfair Display', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .hero-bg {
+            background-image: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.85)), 
+                             url('https://picsum.photos/id/1074/1920/1080');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after,
+        .nav-link.active:after {
+            width: 100%;
+        }
+
+        .project-card {
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
+        }
+
+        .skill-bar {
+            height: 6px;
+            background: linear-gradient(90deg, #3b82f6, #60a5fa);
+            border-radius: 9999px;
+            transition: width 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+    </style>
+</head>
+<body class="tail-container bg-zinc-950 text-zinc-200 overflow-x-hidden">
+    <nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-white/10">
+        <div class="max-w-screen-2xl mx-auto px-8 py-5 flex items-center justify-between">
+            <a href="#home" class="flex items-center gap-3 group">
+                <img src="logo.png" alt="Logo" class="h-14 w-14 object-contain">
+                <span class="text-2xl font-semibold tracking-tighter heading-font">Hassan Ali</span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-10 text-sm font-medium">
+                <a href="#about" class="nav-link text-zinc-300 hover:text-white active">About</a>
+                <a href="#experience" class="nav-link text-zinc-300 hover:text-white">Experience</a>
+                <a href="#skills" class="nav-link text-zinc-300 hover:text-white">Skills</a>
+                <a href="#projects" class="nav-link text-zinc-300 hover:text-white">Projects</a>
+                <a href="#contact" class="nav-link text-zinc-300 hover:text-white">Contact</a>
+            </div>
+            <a href="#contact" 
+               class="hidden md:flex items-center gap-2 px-6 py-3 bg-white text-zinc-900 rounded-3xl font-semibold hover:bg-blue-500 hover:text-white transition-all">
+                <i class="fa-solid fa-paper-plane"></i>
+                <span>Let's Talk</span>
+            </a>
+            <button id="mobile-menu-btn"
+                    class="md:hidden w-11 h-11 flex items-center justify-center text-2xl">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden glass border-t border-white/10">
+            <div class="px-8 py-8 flex flex-col gap-6 text-lg font-medium">
+                <a href="#about" class="nav-link-mobile">About</a>
+                <a href="#experience" class="nav-link-mobile">Experience</a>
+                <a href="#skills" class="nav-link-mobile">Skills</a>
+                <a href="#projects" class="nav-link-mobile">Projects</a>
+                <a href="#contact" class="nav-link-mobile">Contact</a>
+                <a href="#contact" class="mt-6 inline-flex justify-center items-center gap-3 py-4 bg-white text-zinc-900 rounded-3xl font-semibold">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    Let's Talk
+                </a>
+            </div>
+        </div>
+    </nav>
+    <section id="home" class="hero-bg min-h-screen flex items-center relative">
+        <div class="max-w-screen-2xl mx-auto px-8 pt-32">
+            <div class="max-w-2xl">
+                <div class="inline-flex items-center gap-2 px-5 py-2.5 rounded-3xl border border-white/20 bg-white/10 text-sm font-medium mb-8 backdrop-blur-md">
+                    <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                    Available for freelance &amp; opportunities
+                </div>
+                
+                <h1 class="text-7xl md:text-8xl font-bold tracking-tighter leading-none heading-font text-white">
+                    Hassan Ali
+                </h1>
+                <p class="mt-4 text-4xl md:text-5xl font-medium text-blue-300">
+                    Web Developer &amp; Educator
+                </p>
+                
+                <p class="mt-8 text-xl text-zinc-300 max-w-md">
+                    I craft beautiful, high-performance digital experiences that blend creativity with clean code.
+                </p>
+                
+                <div class="mt-12 flex flex-wrap gap-4">
+                    <a href="#projects" 
+                       onclick="document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })"
+                       class="group px-8 py-5 bg-blue-600 hover:bg-blue-700 rounded-3xl font-semibold flex items-center gap-3 transition-all text-lg">
+                        See My Work
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+                    </a>
+                    
+                    <a href="#" 
+                       class="px-8 py-5 border-2 border-white/30 hover:border-white/70 rounded-3xl font-semibold flex items-center gap-3 transition-all text-lg">
+                        <i class="fa-solid fa-download"></i>
+                        Download CV
+                    </a>
+                </div>
+                <br>
+                <br>
+                <br>
+                
+            </div>
+        </div>
+        <div class="hidden lg:block absolute bottom-32 right-12 bg-zinc-900/70 backdrop-blur-lg px-6 py-3 rounded-3xl border border-white/10">
+            <div class="flex items-center gap-4">
+                <div class="text-3xl">🚀</div>
+                <div>
+                    <div class="font-semibold text-sm">6+ Projects</div>
+                    <div class="text-xs text-zinc-400">Delivered in 2025</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="about" class="py-28 bg-zinc-900">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="grid md:grid-cols-12 gap-16 items-center">
+                <div class="md:col-span-5">
+                    <div class="relative">
+                        <img src="picture.png" 
+                             alt="Hassan Ali"
+                             class="rounded-3xl shadow-2xl w-full aspect-[4/5] object-cover">
+                        <div class="absolute -inset-6 border-2 border-blue-500/30 rounded-3xl -rotate-3"></div>
+                    </div>
+                </div>
+                <div class="md:col-span-7">
+                    <span class="px-5 py-2 text-xs tracking-widest font-medium bg-blue-500/10 text-blue-400 rounded-3xl">CHAPTER 01 — THE STORY</span>
+                    <h2 class="text-6xl font-bold heading-font mt-6 leading-none">
+                        Crafting digital <span class="text-blue-400">stories</span> through code
+                    </h2>
+                    <div class="mt-10 text-lg text-zinc-300 leading-relaxed max-w-prose">
+                        <p class="mb-6">
+                            I'm a passionate web developer and educator based in Karachi, Pakistan. 
+                            With a keen eye for design and a love for clean, performant code, I build experiences 
+                            that users genuinely enjoy.
+                        </p>
+                        <p>
+                            Currently shaping the next generation of developers as faculty at 
+                            <span class="font-semibold text-white">Aptech Learning Baldia Town Center</span>, 
+                            while also bringing real-world projects to life as a frontend specialist.
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-3 gap-8 mt-16">
+                        <div>
+                            <div class="text-5xl font-semibold text-blue-400">3+</div>
+                            <div class="text-sm text-zinc-400 mt-1">Years Teaching</div>
+                        </div>
+                        <div>
+                            <div class="text-5xl font-semibold text-blue-400">15+</div>
+                            <div class="text-sm text-zinc-400 mt-1">Projects Completed</div>
+                        </div>
+                        <div>
+                            <div class="text-5xl font-semibold text-blue-400">98%</div>
+                            <div class="text-sm text-zinc-400 mt-1">Client Satisfaction</div>
+                        </div>
+                    </div>
+                    <a href="#contact" class="mt-12 inline-flex items-center gap-3 text-lg group">
+                        <span class="font-medium">Start a conversation</span>
+                        <span class="block w-10 h-px bg-zinc-400 group-hover:bg-blue-400 transition-colors"></span>
+                        <i class="fa-solid fa-arrow-right text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-28 bg-zinc-950">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="flex justify-between items-end mb-16">
+                <div>
+                    <span class="text-xs tracking-widest uppercase font-medium text-blue-400">CHAPTER 02</span>
+                    <h2 class="text-5xl heading-font font-bold mt-2">Professional Journey</h2>
+                </div>
+                <a href="#" class="text-blue-400 flex items-center gap-2 hover:gap-3 transition-all">
+                    View full résumé 
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+            <div class="space-y-20">
+                <div class="grid md:grid-cols-12 gap-8">
+                    <div class="md:col-span-4">
+                        <div class="sticky top-28">
+                            <div class="text-sm text-zinc-400">Feb 2025 — Present</div>
+                            <div class="text-2xl font-semibold mt-2">Faculty Member</div>
+                            <div class="text-blue-400 font-medium">Aptech Learning • Baldia Town Center</div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-8">
+                        <div class="bg-zinc-900/70 rounded-3xl p-8">
+                            <ul class="space-y-4 text-zinc-300">
+                                <li class="flex gap-4"><span class="text-blue-400 mt-1">•</span> Teaching Web Development (HTML, CSS, JavaScript, Bootstrap, PHP, Laravel) to 1st &amp; 2nd semester students</li>
+                                <li class="flex gap-4"><span class="text-blue-400 mt-1">•</span> Designing curriculum and hands-on projects that resulted in 95% student pass rate</li>
+                                <li class="flex gap-4"><span class="text-blue-400 mt-1">•</span> Mentoring 40+ aspiring developers</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-12 gap-8">
+                    <div class="md:col-span-4">
+                        <div class="sticky top-28">
+                            <div class="text-sm text-zinc-400">Jun 2024 — Jan 2025</div>
+                            <div class="text-2xl font-semibold mt-2">Frontend Developer</div>
+                            <div class="text-blue-400 font-medium">Nexus Software House</div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-8">
+                        <div class="bg-zinc-900/70 rounded-3xl p-8">
+                            <ul class="space-y-4 text-zinc-300">
+                                <li class="flex gap-4"><span class="text-blue-400 mt-1">•</span> Built responsive, pixel-perfect websites for 7+ clients using modern frameworks</li>
+                                <li class="flex gap-4"><span class="text-blue-400 mt-1">•</span> Improved site performance by 45% through optimization techniques</li>
+                                <li class="flex gap-4"><span class="text-blue-400 mt-1">•</span> Collaborated directly with designers and backend team</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="skills" class="py-28 bg-zinc-900">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="text-center mb-16">
+                <span class="text-xs tracking-widest uppercase font-medium text-blue-400">CHAPTER 03</span>
+                <h2 class="text-5xl heading-font font-bold mt-3">Skills &amp; Proficiency</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-12 gap-16">
+                <div class="md:col-span-5 flex justify-center">
+                    <div class="w-full max-w-xs">
+                        <canvas id="skillsChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="md:col-span-7 space-y-10">
+                    <div>
+                        <div class="flex justify-between text-sm mb-3">
+                            <span class="font-medium">Frontend Mastery</span>
+                            <span class="text-zinc-400">95%</span>
+                        </div>
+                        <div class="bg-zinc-800 h-1.5 rounded-full overflow-hidden">
+                            <div class="skill-bar w-[95%]"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm mb-3">
+                            <span class="font-medium">Backend Development</span>
+                            <span class="text-zinc-400">82%</span>
+                        </div>
+                        <div class="bg-zinc-800 h-1.5 rounded-full overflow-hidden">
+                            <div class="skill-bar w-[82%]"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm mb-3">
+                            <span class="font-medium">UI/UX &amp; Design Systems</span>
+                            <span class="text-zinc-400">90%</span>
+                        </div>
+                        <div class="bg-zinc-800 h-1.5 rounded-full overflow-hidden">
+                            <div class="skill-bar w-[90%]"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm mb-3">
+                            <span class="font-medium">Teaching &amp; Mentoring</span>
+                            <span class="text-zinc-400">98%</span>
+                        </div>
+                        <div class="bg-zinc-800 h-1.5 rounded-full overflow-hidden">
+                            <div class="skill-bar w-[98%]"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-20 grid grid-cols-4 md:grid-cols-8 gap-8 opacity-75">
+                <div class="flex flex-col items-center gap-2 text-center">
+                    <i class="fa-brands fa-html5 text-5xl text-orange-500"></i>
+                    <span class="text-xs font-medium">HTML5</span>
+                </div>
+                <div class="flex flex-col items-center gap-2 text-center">
+                    <i class="fa-brands fa-css3-alt text-5xl text-blue-500"></i>
+                    <span class="text-xs font-medium">CSS3</span>
+                </div>
+                <div class="flex flex-col items-center gap-2 text-center">
+                    <i class="fa-brands fa-js text-5xl text-yellow-400"></i>
+                    <span class="text-xs font-medium">JavaScript</span>
+                </div>
+                <div class="flex flex-col items-center gap-2 text-center">
+                    <i class="fa-brands fa-bootstrap text-5xl text-purple-600"></i>
+                    <span class="text-xs font-medium">Bootstrap</span>
+                </div>
+                <div class="flex flex-col items-center gap-2 text-center">
+                    <i class="fa-brands fa-react text-5xl text-cyan-400"></i>
+                    <span class="text-xs font-medium">React</span>
+                </div>
+                <div class="flex flex-col items-center gap-2 text-center">
+                    <i class="fa-brands fa-laravel text-5xl text-red-500"></i>
+                    <span class="text-xs font-medium">Laravel</span>
+                </div>
+                <div class="flex flex-col items-center gap-2 text-center">
+                    <i class="fa-brands fa-wordpress text-5xl text-blue-700"></i>
+                    <span class="text-xs font-medium">WordPress</span>
+                </div>
+                <div class="flex flex-col items-center gap-2 text-center">
+                    <i class="fa-solid fa-chart-line text-5xl text-emerald-400"></i>
+                    <span class="text-xs font-medium">SEO</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-28 bg-zinc-950">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="flex items-end justify-between mb-16">
+                <div>
+                    <span class="text-xs tracking-widest uppercase font-medium text-blue-400">CHAPTER 04</span>
+                    <h2 class="text-5xl heading-font font-bold mt-3">Selected Works</h2>
+                </div>
+                <a href="https://github.com/hassanali" target="_blank"
+                   class="flex items-center gap-3 group text-sm font-medium">
+                    <span class="group-hover:underline">Browse all on GitHub</span>
+                    <i class="fa-brands fa-github text-xl"></i>
+                </a>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="project-card bg-zinc-900 rounded-3xl overflow-hidden">
+                    <div class="relative h-72">
+                        <img src="https://picsum.photos/id/1015/800/600" 
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                             alt="Fitness Gym">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <div class="flex gap-2">
+                                <span class="text-[10px] px-3 py-1 bg-white/10 backdrop-blur-md rounded-full">Tailwind</span>
+                                <span class="text-[10px] px-3 py-1 bg-white/10 backdrop-blur-md rounded-full">React</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-semibold">Fitness Pro Gym</h3>
+                        <p class="text-zinc-400 mt-3 line-clamp-3">
+                            Modern fitness platform with class booking, trainer profiles, membership management and blog.
+                        </p>
+                        <div class="mt-6 flex gap-4">
+                            <a href="https://www.gymfitdemo.com" target="_blank"
+                               class="flex-1 text-center py-4 bg-white text-zinc-900 rounded-2xl font-medium hover:bg-amber-400 transition">
+                                Live Demo
+                            </a>
+                            <a href="https://github.com/hassanali/gym-website" target="_blank"
+                               class="flex-1 text-center py-4 border border-white/30 rounded-2xl font-medium hover:border-white transition">
+                                Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card bg-zinc-900 rounded-3xl overflow-hidden">
+                    <div class="relative h-72">
+                        <img src="https://picsum.photos/id/292/800/600" 
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                             alt="Restaurant">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <div class="flex gap-2">
+                                <span class="text-[10px] px-3 py-1 bg-white/10 backdrop-blur-md rounded-full">Laravel</span>
+                                <span class="text-[10px] px-3 py-1 bg-white/10 backdrop-blur-md rounded-full">MySQL</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-semibold">Bella Vista Restaurant</h3>
+                        <p class="text-zinc-400 mt-3 line-clamp-3">
+                            Elegant restaurant website with online reservations, dynamic menu, gallery and admin panel.
+                        </p>
+                        <div class="mt-6 flex gap-4">
+                            <a href="https://www.deliciouseatsdemo.com" target="_blank"
+                               class="flex-1 text-center py-4 bg-white text-zinc-900 rounded-2xl font-medium hover:bg-amber-400 transition">
+                                Live Demo
+                            </a>
+                            <a href="https://github.com/hassanali/restaurant-website" target="_blank"
+                               class="flex-1 text-center py-4 border border-white/30 rounded-2xl font-medium hover:border-white transition">
+                                Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card bg-zinc-900 rounded-3xl overflow-hidden">
+                    <div class="relative h-72">
+                        <img src="https://picsum.photos/id/201/800/600" 
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                             alt="Portfolio">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <div class="flex gap-2">
+                                <span class="text-[10px] px-3 py-1 bg-white/10 backdrop-blur-md rounded-full">Next.js</span>
+                                <span class="text-[10px] px-3 py-1 bg-white/10 backdrop-blur-md rounded-full">Framer</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-semibold">This Portfolio</h3>
+                        <p class="text-zinc-400 mt-3 line-clamp-3">
+                            Modern, animated portfolio built with Tailwind, smooth scroll and premium aesthetics.
+                        </p>
+                        <div class="mt-6 flex gap-4">
+                            <a href="#" 
+                               class="flex-1 text-center py-4 bg-white text-zinc-900 rounded-2xl font-medium hover:bg-amber-400 transition">
+                                Live Demo
+                            </a>
+                            <a href="https://github.com/hassanali/portfolio" target="_blank"
+                               class="flex-1 text-center py-4 border border-white/30 rounded-2xl font-medium hover:border-white transition">
+                                Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-28 bg-zinc-900">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="max-w-2xl mx-auto text-center">
+                <span class="text-xs tracking-widest uppercase font-medium text-blue-400">CHAPTER 05 — FINAL</span>
+                <h2 class="text-6xl heading-font font-bold mt-6">Let's create something<br>extraordinary together</h2>
+                <p class="mt-8 text-xl text-zinc-400">Open for freelance projects, collaborations, or just a friendly chat.</p>
+            </div>
+            
+            <div class="mt-16 max-w-xl mx-auto">
+                <form id="contact-form" class="space-y-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <input type="text" id="name" 
+                               class="bg-zinc-800 border border-white/10 focus:border-blue-500 rounded-3xl px-7 py-6 outline-none transition w-full"
+                               placeholder="Your name" required>
+                        <input type="email" id="email" 
+                               class="bg-zinc-800 border border-white/10 focus:border-blue-500 rounded-3xl px-7 py-6 outline-none transition w-full"
+                               placeholder="your@email.com" required>
+                    </div>
+                    <textarea id="message" rows="6"
+                              class="bg-zinc-800 border border-white/10 focus:border-blue-500 rounded-3xl px-7 py-6 outline-none transition w-full resize-none"
+                              placeholder="Tell me about your project..."></textarea>
+                    
+                    <button type="submit"
+                            class="w-full py-7 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 rounded-3xl text-xl font-semibold transition-all">
+                        Send Message
+                    </button>
+                </form>
+                
+                <div class="mt-12 text-center space-y-3">
+                    <a href="mailto:hassanali03151@gmail.com" class="block hover:text-blue-400 transition flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>hassanali03151@gmail.com</span>
+                    </a>
+                    <a href="tel:+923151008606" class="block hover:text-blue-400 transition flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+92 315 1008606</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black py-16">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="flex items-center gap-8">
+                    <a href="#" class="text-4xl hover:text-blue-400 transition"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" class="text-4xl hover:text-blue-400 transition"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="text-4xl hover:text-blue-400 transition"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+                
+                <div class="text-center text-zinc-400 text-sm">
+                    © 2026 Hassan Ali • Made with passion in Karachi, Pakistan
+                </div>
+                
+                <div class="text-xs text-zinc-500">
+                    Built from scratch with Tailwind + ❤️
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileBtn = document.getElementById('mobile-menu-btn')
+        const mobileMenu = document.getElementById('mobile-menu')
+        
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden')
+            const icon = mobileBtn.querySelector('i')
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars')
+                icon.classList.add('fa-xmark')
+            } else {
+                icon.classList.add('fa-bars')
+                icon.classList.remove('fa-xmark')
+            }
+        })
+        
+        document.querySelectorAll('.nav-link-mobile').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden')
+                const icon = mobileBtn.querySelector('i')
+                icon.classList.add('fa-bars')
+                icon.classList.remove('fa-xmark')
+            })
+        })
+        
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('section[id]')
+            const navLinks = document.querySelectorAll('.nav-link')
+            
+            let current = ''
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id')
+                }
+            })
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active')
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active')
+                }
+            })
+        }
+        
+        window.addEventListener('scroll', updateActiveNav)
+        window.addEventListener('load', updateActiveNav)
+        
+        const ctx = document.getElementById('skillsChart')
+        if (ctx) {
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['HTML', 'CSS', 'JavaScript', 'Bootstrap', 'PHP', 'Laravel', 'WordPress', 'SEO'],
+                    datasets: [{
+                        data: [95, 90, 85, 90, 80, 75, 70, 85],
+                        backgroundColor: [
+                            '#f97316', '#3b82f6', '#eab308', '#22c55e',
+                            '#a855f7', '#f59e0b', '#06b6d4', '#ec4899'
+                        ],
+                        borderColor: '#18181b',
+                        borderWidth: 6,
+                        hoverOffset: 20
+                    }]
+                },
+                options: {
+                    cutout: '75%',
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'bottom',
+                            labels: {
+                                color: '#a1a1aa',
+                                font: { size: 13 },
+                                padding: 20,
+                                usePointStyle: true
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: '#27272a',
+                            titleColor: '#fff',
+                            bodyColor: '#71717a',
+                            displayColors: false
+                        }
+                    }
+                }
+            })
+        }
+        
+        const form = document.getElementById('contact-form')
+        form.addEventListener('submit', function(e) {
+            e.preventDefault()
+            
+            const name = document.getElementById('name').value
+            const email = document.getElementById('email').value
+            const message = document.getElementById('message').value
+            
+            if (name && email && message) {
+                const btn = form.querySelector('button')
+                const originalText = btn.innerHTML
+                btn.innerHTML = `
+                    <span class="inline-block animate-spin mr-3">⟳</span>
+                    Sending...
+                `
+                btn.disabled = true
+                
+                setTimeout(() => {
+                    alert(`Thank you, ${name.split(' ')[0]}! Your message has been received. I'll reply within 24 hours.`)
+                    form.reset()
+                    btn.innerHTML = originalText
+                    btn.disabled = false
+                }, 1800)
+            }
+        });
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.classList.add('group')});
+        
+            console.log('%c👋 Hey there! Thanks for checking out my portfolio code. Feel free to use it as inspiration.', 'color:#3b82f6; font-size:13px')
+    </script>
+</body>
+</html>
