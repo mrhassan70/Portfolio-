@@ -88,7 +88,6 @@
 </head>
 <body class="bg-zinc-950 text-zinc-200 font-['Inter'] overflow-x-hidden">
 
-    <!-- Navbar -->
     <nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-white/10">
         <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
             <a href="#home" class="flex items-center gap-3">
@@ -114,7 +113,6 @@
             </button>
         </div>
 
-        <!-- Mobile menu -->
         <div id="mobile-menu" class="hidden md:hidden glass border-t border-white/10">
             <div class="px-5 py-6 flex flex-col gap-5 text-base font-medium">
                 <a href="#about" class="nav-link-mobile">About</a>
@@ -130,11 +128,9 @@
         </div>
     </nav>
 
-    <!-- Hero -->
     <section id="home" class="hero-bg min-h-screen flex items-center relative pt-20 md:pt-0">
-        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 w-full">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 py-24 w-full">
             <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
-                <!-- Left - Text -->
                 <div class="text-left">
                     <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/8 text-sm font-medium mb-6 backdrop-blur-sm">
                         <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
@@ -165,7 +161,6 @@
                     </div>
                 </div>
 
-                <!-- Right - Image (hidden on mobile, shown on md+) -->
                 <div class="hidden md:block relative">
                     <div class="relative w-full max-w-md mx-auto lg:mx-0">
                         <div class="absolute -inset-4 bg-gradient-to-br from-blue-500/20 to-purple-600/20 rounded-[3rem] blur-2xl opacity-60"></div>
@@ -179,7 +174,6 @@
             </div>
         </div>
 
-        <!-- Floating badge -->
         <div class="hidden lg:block absolute bottom-10 right-10 bg-zinc-900/70 backdrop-blur-lg px-6 py-3 rounded-3xl border border-white/10 text-sm">
             <div class="flex items-center gap-4">
                 <div class="text-3xl">🚀</div>
@@ -315,7 +309,7 @@
                             <span class="text-zinc-400">95%</span>
                         </div>
                         <div class="bg-zinc-800 h-1.5 rounded-full overflow-hidden">
-                            <div class="skill-bar w-[95%]"></div>
+                            <div class="h-full bg-blue-500 w-[95%] rounded-full transition-all duration-1000"></div>
                         </div>
                     </div>
                     <div>
@@ -324,7 +318,7 @@
                             <span class="text-zinc-400">82%</span>
                         </div>
                         <div class="bg-zinc-800 h-1.5 rounded-full overflow-hidden">
-                            <div class="skill-bar w-[82%]"></div>
+                            <div class="h-full bg-blue-500 w-[82%] rounded-full transition-all duration-1000"></div>
                         </div>
                     </div>
                     <div>
@@ -333,7 +327,7 @@
                             <span class="text-zinc-400">90%</span>
                         </div>
                         <div class="bg-zinc-800 h-1.5 rounded-full overflow-hidden">
-                            <div class="skill-bar w-[90%]"></div>
+                            <div class="h-full bg-blue-500 w-[90%] rounded-full transition-all duration-1000"></div>
                         </div>
                     </div>
                     <div>
@@ -342,7 +336,7 @@
                             <span class="text-zinc-400">98%</span>
                         </div>
                         <div class="bg-zinc-800 h-1.5 rounded-full overflow-hidden">
-                            <div class="skill-bar w-[98%]"></div>
+                            <div class="h-full bg-blue-500 w-[98%] rounded-full transition-all duration-1000"></div>
                         </div>
                     </div>
                 </div>
@@ -402,7 +396,7 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="project-card bg-zinc-900 rounded-3xl overflow-hidden">
                     <div class="relative h-72">
-                        <img src="https://picsum.photos/id/1015/800/600" 
+                        <img src="gym.webp" 
                              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                              alt="Fitness Gym">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
@@ -433,7 +427,7 @@
                 
                 <div class="project-card bg-zinc-900 rounded-3xl overflow-hidden">
                     <div class="relative h-72">
-                        <img src="https://picsum.photos/id/292/800/600" 
+                        <img src="restaurant.avif" 
                              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                              alt="Restaurant">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
@@ -464,7 +458,7 @@
                 
                 <div class="project-card bg-zinc-900 rounded-3xl overflow-hidden">
                     <div class="relative h-72">
-                        <img src="https://picsum.photos/id/201/800/600" 
+                        <img src="portfolio.png" 
                              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                              alt="Portfolio">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
@@ -693,4 +687,3 @@
     </script>
 </body>
 </html>
-
